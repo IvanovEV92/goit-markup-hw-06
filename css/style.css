@@ -64,7 +64,6 @@ img {
 	padding-right: 15px;
 	padding-top: 94px;
 	padding-bottom: 94px;
-	outline: 1px solid red;
 }
 .no-padding {
 	padding-top: 0px;
@@ -207,8 +206,15 @@ img {
 	cursor: pointer;
 	border: none;
 	border-color: var(--accent);
+	transition-duration: 250ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.btn-hero:focus,
+.btn-hero:hover {
+	background-color: var(--white);
+	color: var(--accent);
+}
 /* Стили секций */
 section p {
 	color: var(--color-secondary-text);
@@ -515,12 +521,37 @@ p {
 	margin-left: 70px;
 }
 
+.form {
+	display: flex;
+	align-items: flex-end;
+}
+.form-label input {
+	display: inline-flex;
+	width: 358px;
+	height: 50px;
+	outline: none;
+	padding-left: 16px;
+	border-radius: 4px;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	background-color: transparent;
+}
+
+.form-label input:focus {
+	border-color: white;
+}
+.form-label input::placeholder {
+	font-size: 16px;
+	line-height: 1.25;
+	letter-spacing: 0.03em;
+
+	color: rgba(255, 255, 255, 0.6);
+}
 .subscription .btn {
 	display: inline-flex;
 	align-items: center;
 	padding-left: 28px;
 	padding-right: 28px;
-
+	margin-left: 12px;
 	height: 50px;
 	padding: 10px 29px;
 	border: none;
@@ -534,25 +565,27 @@ p {
 	color: var(--white);
 	background-color: var(--accent);
 	cursor: pointer;
-}
-
-.form-label input {
-	display: inline-flex;
-	width: 358px;
-	height: 50px;
-	outline: none;
-	border-radius: 4px;
-	border: 1px solid rgba(255, 255, 255, 0.3);
-	background-color: transparent;
-}
-
-.form-label input:focus {
-	border-color: white;
+	transition-duration: 250ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon-send {
 	fill: var(--white);
+	margin-left: 10px;
+	transition-duration: 250ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.subscription .btn:focus,
+.subscription .btn:hover {
+	background-color: var(--white);
+	color: var(--accent);
+}
+.subscription .btn:focus .icon-send,
+.subscription .btn:hover .icon-send {
+	fill: var(--accent);
+}
+
 /* Модальное окно */
 .backdrop {
 	position: fixed;
