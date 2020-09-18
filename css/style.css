@@ -64,10 +64,22 @@ img {
 	padding-right: 15px;
 	padding-top: 94px;
 	padding-bottom: 94px;
+	outline: 1px solid red;
 }
 .no-padding {
 	padding-top: 0px;
 	padding-bottom: 0px;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	clip: rect(0 0 0 0);
+	overflow: hidden;
 }
 /* Шапка сайта  */
 .container.header {
@@ -434,6 +446,8 @@ p {
 	padding-bottom: 0px;
 }
 .ftr h3 {
+	margin-top: 0;
+	margin-bottom: 20px;
 	font-style: normal;
 	font-weight: 700;
 	font-size: 14px;
@@ -441,7 +455,6 @@ p {
 	letter-spacing: 0.03em;
 	text-transform: uppercase;
 	color: #ffffff;
-	margin-bottom: 20px;
 }
 .ftr p {
 	font-size: 14px;
@@ -497,6 +510,49 @@ p {
 	background-color: var(--accent);
 }
 
+.subscription {
+	margin-top: 5px;
+	margin-left: 70px;
+}
+
+.subscription .btn {
+	display: inline-flex;
+	align-items: center;
+	padding-left: 28px;
+	padding-right: 28px;
+
+	height: 50px;
+	padding: 10px 29px;
+	border: none;
+	border-radius: 4px;
+
+	font-size: 16px;
+	font-weight: 700;
+	/* line-height: 1.88; */
+	letter-spacing: 0.06em;
+
+	color: var(--white);
+	background-color: var(--accent);
+	cursor: pointer;
+}
+
+.form-label input {
+	display: inline-flex;
+	width: 358px;
+	height: 50px;
+	outline: none;
+	border-radius: 4px;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	background-color: transparent;
+}
+
+.form-label input:focus {
+	border-color: white;
+}
+
+.icon-send {
+	fill: var(--white);
+}
 /* Модальное окно */
 .backdrop {
 	position: fixed;
@@ -523,7 +579,6 @@ p {
 	left: 50%;
 	padding: 40px;
 	width: 528px;
-	height: 581px;
 	transform: translate(-50%, -50%) rotate(360deg) scale(1);
 	transition-duration: 250ms;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -580,8 +635,6 @@ p {
 	display: block;
 	position: relative;
 	flex-direction: column;
-
-	/* height: 58px; */
 	margin-bottom: 10px;
 }
 
@@ -604,8 +657,16 @@ p {
 	padding-left: 42px;
 	border: 1px solid rgba(33, 33, 33, 0.2);
 	border-radius: 4px;
+	transition-duration: 250ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-
+.form-field input:focus {
+	border-color: var(--accent);
+	outline: none;
+}
+.form-field input:focus + .form-icon {
+	fill: var(--accent);
+}
 textarea {
 	width: 100%;
 
@@ -614,8 +675,15 @@ textarea {
 	border: 1px solid rgba(33, 33, 33, 0.2);
 	border-radius: 4px;
 	resize: none;
+
+	transition-duration: 250ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+textarea:focus {
+	border-color: var(--accent);
+	outline: none;
+}
 .form-field textarea::placeholder {
 	font-size: 12px;
 	line-height: 1.17;
@@ -646,8 +714,6 @@ textarea {
 }
 
 .form-terms {
-	margin-top: 20px;
-	margin-bottom: 30px;
 	font-size: 14px;
 	line-height: 1.71;
 
@@ -656,6 +722,7 @@ textarea {
 }
 
 .form-terms .link {
+	text-decoration: underline;
 	color: var(--accent);
 }
 
@@ -663,7 +730,38 @@ textarea {
 	position: absolute;
 	top: 55%;
 	left: 12px;
+	transition-duration: 250ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+.checkbox-label {
+	display: inline-block;
+	align-items: center;
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+.checkbox-label .icon {
+	vertical-align: middle;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	margin-right: 8px;
+
+	border: 2px solid var(--color-main-text);
+	border-radius: 2px;
+	transition-duration: 250ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.checkbox:checked ~ .icon {
+	background-color: var(--accent);
+	background-image: url(../img/icon_check.svg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-origin: border-box;
+
+	border-color: var(--accent);
+}
+
 /* Portfolio.html */
 
 /* Кнопки фильтрации */
